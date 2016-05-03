@@ -1,9 +1,10 @@
 #!/bin/bash
 clear
+source emoji_and_colors.sh
 
 # function for quitting in error cases
 function quit {
-    printf "\n\t  (╯°□°)╯︵ ┻━┻                 \n"
+    printf "\n\t  ${BLUE}(╯${CYAN}°${WHITE}□${CYAN}°${BLUE})╯${NORMAL}︵ ${RED}┻━┻${NORMAL}\n"
     printf "  ...hope this wasn't during the presentation...\n\n"
     exit
 }
@@ -13,45 +14,49 @@ function quit {
 function is_empty {
     if [[ -z $1 ]]
     then
-        printf "ERROR: $2 \n"
+        printf "${RED_BG}${BRIGHT}ERROR:${NORMAL} $2 \n"
         quit
     fi
 }
 
 BANNER="
- █████╗ ██╗   ██╗████████╗ ██████╗ ███████╗ ██████╗ █████╗ ███╗   ██╗
-██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗██╔════╝██╔════╝██╔══██╗████╗  ██║
-███████║██║   ██║   ██║   ██║   ██║███████╗██║     ███████║██╔██╗ ██║
-██╔══██║██║   ██║   ██║   ██║   ██║╚════██║██║     ██╔══██║██║╚██╗██║
-██║  ██║╚██████╔╝   ██║   ╚██████╔╝███████║╚██████╗██║  ██║██║ ╚████║
-╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝
-                                                                     
+${YELLOW}  █████╗ ██╗   ██╗████████╗ ██████╗ ███████╗ ██████╗ █████╗ ███╗   ██╗
+${GREEN} ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗██╔════╝██╔════╝██╔══██╗████╗  ██║
+${CYAN} ███████║██║   ██║   ██║   ██║   ██║███████╗██║     ███████║██╔██╗ ██║
+${BLUE} ██╔══██║██║   ██║   ██║   ██║   ██║╚════██║██║     ██╔══██║██║╚██╗██║
+${MAGENTA} ██║  ██║╚██████╔╝   ██║   ╚██████╔╝███████║╚██████╗██║  ██║██║ ╚████║
+${RED} ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝
+${NORMAL}                                                                     
 "
 printf "$BANNER"
 #temporary title banner, for funsies
 
+#NEW_BASH_CMD="cd /tmp;ls -la"
+#gnome-terminal -e "bash -c \"$NEW_BASH_CMD; exec bash\""
+
 # detect active network interface
 NIC=$(ip link show | grep 'state UP' | awk -F ': |:' '{print $2}')
-is_empty $NIC "no available network connection"
+is_empty "$NIC" "no available network connection"
 
 #acquire and print out connection information
 printf "Network Connection:\n"
 CONNECT_INFO=$(iwconfig $NIC)
 ESSID=$(echo $CONNECT_INFO | grep "ESSID" | awk -F ':"|"' '{print $2}')
 MAC=$(echo $CONNECT_INFO | grep "Access Point" | awk -F ": | Bit" '{print $2}')
-printf "+[$NIC]:\tESSID: $ESSID ($MAC)\n"
+printf "+[${GREEN}$NIC${NORMAL}]:  ${BRIGHT}ESSID:${NORMAL} ${CYAN}$ESSID${NORMAL} (${MAGENTA}$MAC${NORMAL})\n"
+printf "${BRIGHT}=====================================================================${NORMAL}\n"
+# ifconfig $NIC down
+# macchanger -r $NIC
+# ifconfig $NIC up
 
-ifconfig $NIC down
-macchanger -r $NIC
-ifconfig $NIC up
-
-#reconnect to network with new mac -- might be a better way this takes some time
-nmcli con up id "$ESSID"
+# #reconnect to network with new mac -- might be a better way this takes some time
+# nmcli con up id "$ESSID"
 
 # arp scan parsing: returns a list of space-separated IPs
 ARPRESULT=$(arp-scan --localnet | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' | tr '\n' ' ')
 # error check
-is_empty $ARPRESULT "ARP scan failure"
+is_empty "$ARPRESULT" "ARP scan failure"
+printf "+[${GREEN}HOSTS${NORMAL}]: ${YELLOW}$ARPRESULT${NORMAL}\n\n"
 #remove trailing space 
 ARPRESULT=${ARPRESULT:0:-1}
 
@@ -61,6 +66,7 @@ HOSTS=($ARPRESULT)
 # nmap output file
 OUTFILE="arp-scan.378"
 
+source nfs.sh
 
 # sample nmap scan using arp-scan result 
 #nmap -Pn -p5357 ${HOSTS[1]} > $OUTFILE
@@ -77,6 +83,7 @@ fi
 msfdb init
 msfdb start
 
+source mysql.sh
+source ssh.sh
 
-#launch metasploit with script file -- not yet implemented
-#msfconsole -r msfc_footprint.rc
+printf "YAY WE DID IT\n"

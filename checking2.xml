@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 6.49BETA4 scan initiated Mon May  2 23:38:57 2016 as: nmap -F -oA checking2 10.202.208.1-10 -->
+<nmaprun scanner="nmap" args="nmap -F -oA checking2 10.202.208.1-10" start="1462246737" startstr="Mon May  2 23:38:57 2016" version="6.49BETA4" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1462246737" endtime="1462246786"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.202.208.1" addrtype="ipv4"/>
+<address addr="10:BF:48:D3:93:B8" addrtype="mac" vendor="Asustek Computer"/>
+<hostnames>
+<hostname name="router.asus.com" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="98">
+<extrareasons reason="resets" count="98"/>
+</extraports>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+</ports>
+<times srtt="135437" rttvar="84784" to="474573"/>
+</host>
+<host starttime="1462246737" endtime="1462246785"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.202.208.2" addrtype="ipv4"/>
+<address addr="00:21:9B:9F:A8:80" addrtype="mac" vendor="Dell"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="97">
+<extrareasons reason="no-responses" count="59"/>
+<extrareasons reason="host-prohibiteds" count="38"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+</ports>
+<times srtt="344329" rttvar="195891" to="1127893"/>
+</host>
+<host starttime="1462246737" endtime="1462246782"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.202.208.4" addrtype="ipv4"/>
+<address addr="26:74:35:43:2E:2A" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="90">
+<extrareasons reason="resets" count="90"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="79"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="finger" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="111"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rpcbind" method="table" conf="3"/></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="netbios-ssn" method="table" conf="3"/></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="2049"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="nfs" method="table" conf="3"/></port>
+<port protocol="tcp" portid="3306"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="mysql" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http-proxy" method="table" conf="3"/></port>
+</ports>
+<times srtt="134377" rttvar="102227" to="543285"/>
+</host>
+<host starttime="1462246737" endtime="1462246783"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.202.208.5" addrtype="ipv4"/>
+<address addr="2E:9F:36:F4:6D:5B" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="99">
+<extrareasons reason="resets" count="99"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+</ports>
+<times srtt="187438" rttvar="193323" to="960730"/>
+</host>
+<host starttime="1462246737" endtime="1462246785"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.202.208.7" addrtype="ipv4"/>
+<address addr="4E:F6:A5:FE:96:E2" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="96">
+<extrareasons reason="no-responses" count="56"/>
+<extrareasons reason="host-prohibiteds" count="40"/>
+</extraports>
+<port protocol="tcp" portid="21"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ftp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="111"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rpcbind" method="table" conf="3"/></port>
+<port protocol="tcp" portid="2049"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="nfs" method="table" conf="3"/></port>
+</ports>
+<times srtt="146504" rttvar="116940" to="614264"/>
+</host>
+<host starttime="1462246737" endtime="1462246785"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="10.202.208.9" addrtype="ipv4"/>
+<address addr="BA:A9:C8:79:14:BD" addrtype="mac"/>
+<hostnames>
+<hostname name="xoa" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="96">
+<extrareasons reason="resets" count="96"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="111"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rpcbind" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+</ports>
+<times srtt="160910" rttvar="68540" to="435070"/>
+</host>
+<runstats><finished time="1462246786" timestr="Mon May  2 23:39:46 2016" elapsed="49.25" summary="Nmap done at Mon May  2 23:39:46 2016; 10 IP addresses (6 hosts up) scanned in 49.25 seconds" exit="success"/><hosts up="6" down="4" total="10"/>
+</runstats>
+</nmaprun>

@@ -1,0 +1,62 @@
+# Nmap 6.49BETA4 scan initiated Mon May  2 23:38:57 2016 as: nmap -F -oA checking2 10.202.208.1-10
+Nmap scan report for router.asus.com (10.202.208.1)
+Host is up (0.14s latency).
+Not shown: 98 closed ports
+PORT   STATE SERVICE
+53/tcp open  domain
+80/tcp open  http
+MAC Address: 10:BF:48:D3:93:B8 (Asustek Computer)
+
+Nmap scan report for 10.202.208.2
+Host is up (0.34s latency).
+Not shown: 97 filtered ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+443/tcp open  https
+MAC Address: 00:21:9B:9F:A8:80 (Dell)
+
+Nmap scan report for 10.202.208.4
+Host is up (0.13s latency).
+Not shown: 90 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+53/tcp   open  domain
+79/tcp   open  finger
+80/tcp   open  http
+111/tcp  open  rpcbind
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+2049/tcp open  nfs
+3306/tcp open  mysql
+8080/tcp open  http-proxy
+MAC Address: 26:74:35:43:2E:2A (Unknown)
+
+Nmap scan report for 10.202.208.5
+Host is up (0.19s latency).
+Not shown: 99 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 2E:9F:36:F4:6D:5B (Unknown)
+
+Nmap scan report for 10.202.208.7
+Host is up (0.15s latency).
+Not shown: 96 filtered ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+2049/tcp open  nfs
+MAC Address: 4E:F6:A5:FE:96:E2 (Unknown)
+
+Nmap scan report for xoa (10.202.208.9)
+Host is up (0.16s latency).
+Not shown: 96 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+111/tcp open  rpcbind
+443/tcp open  https
+MAC Address: BA:A9:C8:79:14:BD (Unknown)
+
+# Nmap done at Mon May  2 23:39:46 2016 -- 10 IP addresses (6 hosts up) scanned in 49.25 seconds
