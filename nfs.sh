@@ -9,8 +9,8 @@ SECONDS=0
 NFSABLE=$(nmap -Pn -p$NFS_PORT $ARPRESULT --open | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' | tr '\n' ' ')
 printf "...scan complete in ${GREEN}$SECONDS seconds!${NORMAL}\n\n"
 
-if [[ -z NFSABLE ]]; then
-    printf "No NFS targets found! That's probably not good\n"
+if [ "$NFSABLE" == "" ]; then
+    printf "  $EM_WTF  No NFS targets found! That's probably not good\n"
 else
     NFS_HOSTS=($NFSABLE)
     NFS_TARGETS=()

@@ -29,10 +29,6 @@ ${RED} ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═══�
 ${NORMAL}                                                                     
 "
 printf "$BANNER"
-#temporary title banner, for funsies
-
-#NEW_BASH_CMD="cd /tmp;ls -la"
-#gnome-terminal -e "bash -c \"$NEW_BASH_CMD; exec bash\""
 
 # detect active network interface
 NIC=$(ip link show | grep 'state UP' | awk -F ': |:' '{print $2}')
@@ -45,12 +41,14 @@ ESSID=$(echo $CONNECT_INFO | grep "ESSID" | awk -F ':"|"' '{print $2}')
 MAC=$(echo $CONNECT_INFO | grep "Access Point" | awk -F ": | Bit" '{print $2}')
 printf "+[${GREEN}$NIC${NORMAL}]:  ${BRIGHT}ESSID:${NORMAL} ${CYAN}$ESSID${NORMAL} (${MAGENTA}$MAC${NORMAL})\n"
 printf "${BRIGHT}=====================================================================${NORMAL}\n"
-# ifconfig $NIC down
-# macchanger -r $NIC
-# ifconfig $NIC up
+ifconfig $NIC down
+macchanger -r $NIC
+ifconfig $NIC up
 
 # #reconnect to network with new mac -- might be a better way this takes some time
-# nmcli con up id "$ESSID"
+if [ $( echo $NIC | grep wlan ) != "" ]; then
+    nmcli con up id "$ESSID"
+fi
 
 # arp scan parsing: returns a list of space-separated IPs
 ARPRESULT=$(arp-scan --localnet | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' | tr '\n' ' ')
@@ -63,13 +61,8 @@ ARPRESULT=${ARPRESULT:0:-1}
 # turn string into array for individual host scanning
 HOSTS=($ARPRESULT)
 
-# nmap output file
-OUTFILE="arp-scan.378"
-
+# execute NFS script
 source nfs.sh
-
-# sample nmap scan using arp-scan result 
-#nmap -Pn -p5357 ${HOSTS[1]} > $OUTFILE
 
 # checking on status of postgresql service
 printf "checking database...\n"
@@ -86,4 +79,4 @@ msfdb start
 source mysql.sh
 source ssh.sh
 
-printf "YAY WE DID IT\n"
+printf "YAY WE DID IT!\t$EM_GIFFKISS\n"
