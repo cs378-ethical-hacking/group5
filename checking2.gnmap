@@ -1,14 +1,1 @@
-# Nmap 6.49BETA4 scan initiated Mon May  2 23:38:57 2016 as: nmap -F -oA checking2 10.202.208.1-10
-Host: 10.202.208.1 (router.asus.com)	Status: Up
-Host: 10.202.208.1 (router.asus.com)	Ports: 53/open/tcp//domain///, 80/open/tcp//http///	Ignored State: closed (98)
-Host: 10.202.208.2 ()	Status: Up
-Host: 10.202.208.2 ()	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///, 443/open/tcp//https///	Ignored State: filtered (97)
-Host: 10.202.208.4 ()	Status: Up
-Host: 10.202.208.4 ()	Ports: 22/open/tcp//ssh///, 53/open/tcp//domain///, 79/open/tcp//finger///, 80/open/tcp//http///, 111/open/tcp//rpcbind///, 139/open/tcp//netbios-ssn///, 445/open/tcp//microsoft-ds///, 2049/open/tcp//nfs///, 3306/open/tcp//mysql///, 8080/open/tcp//http-proxy///	Ignored State: closed (90)
-Host: 10.202.208.5 ()	Status: Up
-Host: 10.202.208.5 ()	Ports: 22/open/tcp//ssh///	Ignored State: closed (99)
-Host: 10.202.208.7 ()	Status: Up
-Host: 10.202.208.7 ()	Ports: 21/open/tcp//ftp///, 22/open/tcp//ssh///, 111/open/tcp//rpcbind///, 2049/open/tcp//nfs///	Ignored State: filtered (96)
-Host: 10.202.208.9 (xoa)	Status: Up
-Host: 10.202.208.9 (xoa)	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///, 111/open/tcp//rpcbind///, 443/open/tcp//https///	Ignored State: closed (96)
-# Nmap done at Mon May  2 23:39:46 2016 -- 10 IP addresses (6 hosts up) scanned in 49.25 seconds
+# Nmap 6.49BETA4 scan initiated Tue May  3 13:11:25 2016 as: nmap -F -oA checking2 10.202.208.1-10

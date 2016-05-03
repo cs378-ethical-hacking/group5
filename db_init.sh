@@ -41,9 +41,9 @@ ESSID=$(echo $CONNECT_INFO | grep "ESSID" | awk -F ':"|"' '{print $2}')
 MAC=$(echo $CONNECT_INFO | grep "Access Point" | awk -F ": | Bit" '{print $2}')
 printf "+[${GREEN}$NIC${NORMAL}]:  ${BRIGHT}ESSID:${NORMAL} ${CYAN}$ESSID${NORMAL} (${MAGENTA}$MAC${NORMAL})\n"
 printf "${BRIGHT}=====================================================================${NORMAL}\n"
-ifconfig $NIC down
-macchanger -r $NIC
-ifconfig $NIC up
+#ifconfig $NIC down
+#macchanger -r $NIC
+#ifconfig $NIC up
 
 # #reconnect to network with new mac -- might be a better way this takes some time
 if [ $( echo $NIC | grep wlan ) != "" ]; then

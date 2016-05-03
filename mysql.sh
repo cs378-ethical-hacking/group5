@@ -1,6 +1,8 @@
 printf "[${BRIGHT}${BLUE}MySQL Bruteforce${NORMAL}]:\n"
 SECONDS=0
 #launch metasploit with script file -- not yet implemented
+OUTFILE="arp-scan.xml"
+nmap -p22,3306 $ARPRESULT -oX $OUTFILE
 msfconsole -r msfc_mysql_footprint.rc
 
 printf "...exploit completed in ${BLUE}$SECONDS seconds${NORMAL}!\n"

@@ -1,10 +1,8 @@
 workspace -d AUTOSCAN
 workspace -a AUTOSCAN
-nmap -F 10.202.208.1-10 -oA checking2
-db_import checking2.xml
+db_import arp-scan.xml
 use auxiliary/scanner/mysql/mysql_login
-services -S mysql -R
-
+services -S mysql -u -R
 set USER_FILE ./Usernames.txt
 set PASS_FILE ./Passwords.txt
 set THREADS 10
