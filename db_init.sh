@@ -46,9 +46,9 @@ printf "${BRIGHT}===============================================================
 #ifconfig $NIC up
 
 # #reconnect to network with new mac -- might be a better way this takes some time
-if [ $( echo $NIC | grep wlan ) != "" ]; then
-    nmcli con up id "$ESSID"
-fi
+#if [ $( echo $NIC | grep wlan ) != "" ]; then
+#    nmcli con up id "$ESSID"
+#fi
 
 # arp scan parsing: returns a list of space-separated IPs
 ARPRESULT=$(arp-scan --localnet | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' | tr '\n' ' ')
