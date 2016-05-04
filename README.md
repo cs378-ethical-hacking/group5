@@ -3,6 +3,7 @@
 Targets: NFS, SSH, MySQL services
 
 Methodology:
+
 1. enumerate hosts (arp-scan --localnet parse)
 
 2. initialize and connect to PostgreSQL database
